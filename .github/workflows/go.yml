@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go_version: ['1.18', '1.17', '>=1.18']
+        go_version:  ['1.20'] 
     steps:
     - uses: actions/checkout@v3
 
@@ -25,7 +25,7 @@ jobs:
       run: docker-compose build
       
     - name: Create-DB
-      run: docker-compose up -d
+      run: docker-compose up -d postgres
 
     - name: Test
       run: go test -v main_test.go 
